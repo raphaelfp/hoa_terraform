@@ -7,12 +7,12 @@ data "aws_availability_zones" "available" {
 }
 
 module "network" {
-  source                = "./network"
-  vpc_name              = var.vpc_name
-  vpc_cidr              = var.vpc_cidr
-  private_subnet_netnum = var.private_subnet_netnum
-  public_subnet_netnum  = var.public_subnet_netnum
-  environment           = var.environment
-  enable_nat_gateway    = var.enable_nat_gateway
-  enable_vpn_gateway    = var.enable_vpn_gateway
+  source                  = "./network"
+  vpc_name                = var.vpc_name
+  vpc_cidr                = var.vpc_cidr
+  public_subnets_netnum   = var.public_subnets_netnum
+  database_subnets_netnum = var.database_subnets_netnum
+  environment             = var.environment
+  enable_nat_gateway      = var.enable_nat_gateway
+  single_nat_gateway      = var.single_nat_gateway
 } 
