@@ -1,4 +1,4 @@
-vpc_name = "my-vpc"
+vpc_name = "vpc-hoa00"
 vpc_cidr = "10.0.0.0/16"
 public_subnets_netnum = [1, 2]
 database_subnets_netnum = [101, 102]
