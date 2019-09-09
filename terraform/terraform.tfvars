@@ -1,7 +1,11 @@
-vpc_name = "vpc-hoa00"
-vpc_cidr = "10.0.0.0/16"
-public_subnets_netnum = [1, 2]
+vpc_name                = "vpc-hoa00"
+vpc_cidr                = "10.0.0.0/16"
+public_subnets_netnum   = [1, 2]
 database_subnets_netnum = [101, 102]
-environment = "hoa"
-enable_nat_gateway = true
-single_nat_gateway = true
+environment             = "hoa"
+enable_nat_gateway      = true
+single_nat_gateway      = true
+
+instance_type      = "t3.micro"
+instance_name      = "web_hoa"
+replication_number = 2

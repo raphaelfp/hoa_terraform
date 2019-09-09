@@ -15,4 +15,15 @@ module "network" {
   environment             = var.environment
   enable_nat_gateway      = var.enable_nat_gateway
   single_nat_gateway      = var.single_nat_gateway
-} 
+}
+
+module "compute" {
+  source             = "./compute"
+  instance_type      = var.instance_type
+  instance_name      = var.instance_name
+  replication_number = var.replication_number
+  public_subnets     = module.network.public_subnets
+  vpc_id             = module.network.vpc_id
+  security_group     = module.network.security_group_allow_http
+  environment        = var.environment
+}

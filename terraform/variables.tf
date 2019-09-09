@@ -5,3 +5,7 @@ variable "database_subnets_netnum" {}
 variable "environment" {}
 variable "enable_nat_gateway" {}
 variable "single_nat_gateway" {}
+
+variable "instance_type" {}
+variable "instance_name" {}
+variable "replication_number" {}
