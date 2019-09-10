@@ -21,14 +21,19 @@ resource "aws_key_pair" "aws_keypair" {
   public_key = tls_private_key.ssh_key.public_key_openssh
 }
 
+resource "local_file" "export_pk" {
+  content  = tls_private_key.ssh_key.private_key_pem
+  filename = "hoa.pem"
+}
+
 resource "aws_instance" "web_hoa" {
-  count           = var.replication_number
-  ami             = data.aws_ami.ubuntu_bionic64.id
-  instance_type   = var.instance_type
-  key_name        = aws_key_pair.aws_keypair.key_name
-  subnet_id       = element(var.public_subnets, count.index)
-  security_groups = [var.security_group]
-  user_data       = <<EOF
+  count                  = var.replication_number
+  ami                    = data.aws_ami.ubuntu_bionic64.id
+  instance_type          = var.instance_type
+  key_name               = aws_key_pair.aws_keypair.key_name
+  subnet_id              = element(var.public_subnets, count.index)
+  vpc_security_group_ids = [var.security_group]
+  user_data              = <<EOF
 #! /bin/bash
 sudo apt update
 sudo apt install -y apache2
@@ -41,6 +46,5 @@ EOF
   tags = {
     Name        = var.instance_name
     Environment = var.environment
-    Terraform   = "true"
   }
 }

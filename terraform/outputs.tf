@@ -22,6 +22,10 @@ output "vpc_azs" {
   value = module.network.vpc_azs
 }
 
-output "public_ip" {
+output "web_loha_public_ip" {
   value = module.compute.public_ip
+}
+
+output "web_hoa_elb_dns" {
+  value = module.compute.elb_dns
 }
