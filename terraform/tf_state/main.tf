@@ -7,9 +7,6 @@ resource "aws_s3_bucket" "tf_state_s3" {
   versioning {
     enabled = true
   }
-  lifecycle {
-    prevent_destroy = true
-  }
   tags = {
     Name = "S3 Remote Terraform State Store"
   }
