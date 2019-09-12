@@ -18,6 +18,10 @@ output "vpc_id" {
   value = module.vpc.vpc_id
 }
 
+output "vpc_cidr" {
+  value = var.vpc_cidr
+}
+
 output "vpc_azs" {
   value = module.vpc.azs
 }

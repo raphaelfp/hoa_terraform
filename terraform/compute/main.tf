@@ -36,6 +36,7 @@ resource "aws_instance" "web_hoa" {
   user_data              = <<EOF
 #! /bin/bash
 sudo apt update
+sudo apt install mysql-client-core-5.7 -y
 sudo apt install -y apache2
 sudo systemctl start apache2
 sudo systemctl enable apache2

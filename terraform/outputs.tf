@@ -18,6 +18,10 @@ output "vpc_id" {
   value = module.network.vpc_id
 }
 
+output "vpc_cidr" {
+  value = module.network.vpc_cidr
+}
+
 output "vpc_azs" {
   value = module.network.vpc_azs
 }
@@ -26,6 +30,14 @@ output "web_loha_public_ip" {
   value = module.compute.public_ip
 }
 
-output "web_hoa_elb_dns" {
+output "_web_hoa_elb_dns" {
   value = module.compute.elb_dns
+}
+
+output "_mysql_cs" {
+    value = module.database.mysql_cs
+}
+
+output "_ssh_instance" {
+    value = module.compute.ssh_instance
 }
