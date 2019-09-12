@@ -2,6 +2,24 @@ provider "aws" {
   region = "us-east-2"
 }
 
+terraform {
+  required_version = ">= 0.12.0"
+}
+
+module "tf_state" {
+  source = "./tf_state"
+}
+
+terraform {
+  backend "s3" {
+    encrypt        = true
+    bucket         = "tf-state-s3-2b5a9ffec53792e5"
+    dynamodb_table = "terraform-state-lock-dynamo"
+    region         = "us-east-2"
+    key            = "hoa"
+  }
+}
+
 data "aws_availability_zones" "available" {
   state = "available"
 }

@@ -1,4 +1,4 @@
-output "database_subnets" {
+/*output "database_subnets" {
   value = module.network.database_subnets
 }
 
@@ -40,4 +40,12 @@ output "_mysql_cs" {
 
 output "_ssh_instance" {
     value = module.compute.ssh_instance
+}
+*/
+output "bucket" {
+  value = module.tf_state.bucket
+}
+
+output "dynamodb_table" {
+  value = module.tf_state.dynamodb_table
 }
