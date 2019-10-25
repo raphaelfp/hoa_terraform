@@ -1,21 +1,17 @@
 provider "aws" {
-  region = "us-east-2"
+  region = "us-east-1"
 }
 
 terraform {
   required_version = ">= 0.12.0"
 }
 
-module "tf_state" {
-  source = "./tf_state"
-}
-
 terraform {
   backend "s3" {
     encrypt        = true
-    bucket         = "tf-state-s3-2b5a9ffec53792e5"
-    dynamodb_table = "terraform-state-lock-dynamo"
-    region         = "us-east-2"
+    bucket         = "tf-state-s3-xxxxxxxxxx"
+    dynamodb_table = "tf-state-lock-xxxxxxxxxx"
+    region         = "us-east-1"
     key            = "hoa"
   }
 }
@@ -42,7 +38,6 @@ module "compute" {
   replication_number = var.replication_number
   public_subnets     = module.network.public_subnets
   vpc_id             = module.network.vpc_id
-  security_group     = module.network.security_group_allow_http
   environment        = var.environment
 }
 

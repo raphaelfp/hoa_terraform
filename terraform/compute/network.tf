@@ -1,6 +1,32 @@
+resource "aws_security_group" "allow_http" {
+  name   = "allow_http"
+  vpc_id = var.vpc_id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_elb" "web_hoa" {
   subnets         = var.public_subnets
-  security_groups = [var.security_group]
+  security_groups = [aws_security_group.allow_http.id]
 
   listener {
     instance_port     = 80

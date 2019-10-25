@@ -1,4 +1,4 @@
-vpc_name                = "vpc-hoa00"
+vpc_name                = "vpc-udti00"
 vpc_cidr                = "10.0.0.0/16"
 public_subnets_netnum   = [1, 2]
 database_subnets_netnum = [101, 102]
@@ -7,7 +7,7 @@ enable_nat_gateway      = true
 single_nat_gateway      = true
 
 instance_type      = "t3.micro"
-instance_name      = "web_hoa"
+instance_name      = "web_udti"
 replication_number = 2
 
 db_allocated_storage    = 20
@@ -16,6 +16,6 @@ db_engine               = "mysql"
 db_engine_version       = "5.7"
 db_instance_class       = "db.t3.micro"
 db_name                 = "mydb"
-db_username             = "hoa"
+db_username             = "udti"
 db_password             = "senhadevesercriptografada"
 db_parameter_group_name = "default.mysql5.7"

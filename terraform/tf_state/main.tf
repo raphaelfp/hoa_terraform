@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "tf_state_s3" {
 }
 
 resource "aws_dynamodb_table" "dynamodb_tf_state_lock" {
-  name           = "terraform-state-lock-dynamo"
+  name           = "tf-state-lock-${random_id.tf_state_random_bucket.hex}"
   hash_key       = "LockID"
   read_capacity  = 20
   write_capacity = 20

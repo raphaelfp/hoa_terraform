@@ -25,7 +25,3 @@ output "vpc_cidr" {
 output "vpc_azs" {
   value = module.vpc.azs
 }
-
-output "security_group_allow_http" {
-  value = aws_security_group.allow_http.id
-}
