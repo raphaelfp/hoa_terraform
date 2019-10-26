@@ -4,9 +4,10 @@ resource "random_id" "tf_state_random_bucket" {
 
 resource "aws_s3_bucket" "tf_state_s3" {
   bucket = "tf-state-s3-${random_id.tf_state_random_bucket.hex}"
-  versioning {
-    enabled = true
-  }
+  force_destroy= true
+#  versioning {
+#    enabled = true
+#  }
   tags = {
     Name = "S3 Remote Terraform State Store"
   }
