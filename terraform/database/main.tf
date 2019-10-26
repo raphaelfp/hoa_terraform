@@ -3,18 +3,18 @@ resource "aws_db_subnet_group" "web_hoa_subnet_group" {
 }
 
 resource "aws_db_instance" "web_hoa_db" {
-  allocated_storage    = var.allocated_storage
-  storage_type         = var.storage_type
-  engine               = var.engine
-  engine_version       = var.engine_version
-  instance_class       = var.instance_class
-  name                 = var.name
-  username             = var.username
-  password             = var.password
-  parameter_group_name = var.parameter_group_name
-  db_subnet_group_name = aws_db_subnet_group.web_hoa_subnet_group.id
+  allocated_storage      = var.allocated_storage
+  storage_type           = var.storage_type
+  engine                 = var.engine
+  engine_version         = var.engine_version
+  instance_class         = var.instance_class
+  name                   = var.name
+  username               = var.username
+  password               = var.password
+  parameter_group_name   = var.parameter_group_name
+  db_subnet_group_name   = aws_db_subnet_group.web_hoa_subnet_group.id
   vpc_security_group_ids = [aws_security_group.web_hoa_sg.id]
-  skip_final_snapshot  = true
+  skip_final_snapshot    = true
 }
 
 resource "aws_security_group" "web_hoa_sg" {

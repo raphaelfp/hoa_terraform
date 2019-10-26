@@ -32,7 +32,7 @@ resource "aws_instance" "web_hoa" {
   instance_type          = var.instance_type
   key_name               = aws_key_pair.aws_keypair.key_name
   subnet_id              = element(var.public_subnets, count.index)
-  vpc_security_group_ids = [var.security_group]
+  vpc_security_group_ids = [aws_security_group.allow_http.id]
   user_data              = <<EOF
 #! /bin/bash
 sudo apt update

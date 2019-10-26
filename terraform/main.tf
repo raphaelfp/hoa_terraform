@@ -9,10 +9,10 @@ terraform {
 terraform {
   backend "s3" {
     encrypt        = true
-    bucket         = "tf-state-s3-xxxxxxxxxx"
-    dynamodb_table = "tf-state-lock-xxxxxxxxxx"
+    bucket         = "tf-state-s3-6a2c9d2b419b791b"
+    dynamodb_table = "tf-state-lock-6a2c9d2b419b791b"
     region         = "us-east-1"
-    key            = "hoa"
+    key            = "udti"
   }
 }
 

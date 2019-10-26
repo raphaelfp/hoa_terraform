@@ -2,7 +2,7 @@ vpc_name                = "vpc-udti00"
 vpc_cidr                = "10.0.0.0/16"
 public_subnets_netnum   = [1, 2]
 database_subnets_netnum = [101, 102]
-environment             = "hoa"
+environment             = "udti"
 enable_nat_gateway      = true
 single_nat_gateway      = true
 
